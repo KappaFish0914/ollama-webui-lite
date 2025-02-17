@@ -1,3 +1,12 @@
+# 启动
+
+**注意: 14.21.3 node.js版本无法启动**
+
+```bash
+node -v 16.13.1
+npm -v 8.12.2
+```
+
 # Ollama Web UI Lite 🦙
 
 Ollama Web UI Lite is a streamlined version of [Ollama Web UI](https://github.com/ollama-webui/ollama-webui), designed to offer a simplified user interface with minimal features and reduced complexity. The primary focus of this project is on achieving cleaner code through a full TypeScript migration, adopting a more modular architecture, ensuring comprehensive test coverage, and implementing a robust CI/CD pipeline.

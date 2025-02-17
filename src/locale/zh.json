@@ -1,0 +1,39 @@
+{
+    "Sidebar": {
+        "NewChat": "新对话",
+        "Search": "搜索",
+        "Import": "导入",
+        "Export": "导出",
+        "Confirm": "确认?",
+        "Clear": "清除对话",
+        "Settings": "设置"
+    },
+    "SettingModal": {
+        "Settings": "设置",
+        "General": "通用",
+        "Advanced": "高级",
+        "Models": "模型",
+        "About": "关于",
+        "Theme": "主题",
+        "Trouble": "遇到问题?",
+        "Help": "点击这里寻求帮助.",
+        "Save": "保存",
+        "PullModel": "拉取模型",
+        "PullModelPlaceholder": "输入模型tag(例: mistral:7b)",
+        "PullModelTip": "输入模型名称拉取模型.",
+        "Click": "点击这里.",
+        "DeleteModel": "删除模型",
+        "SelectModel": "选择模型"
+    },
+    "ModalSelector": {
+        "SelectModal": "选择模型",
+        "SetDefault": "设为默认模型"
+    },
+    "Messages": {
+        "Hello": "有什么可以帮到您?"
+    },
+    "MessageInput": {
+        "SendMessagePlaceholder": "请输入信息",
+        "Tip": "大语言模型也会犯错. 请验证重要信息"
+    }
+}

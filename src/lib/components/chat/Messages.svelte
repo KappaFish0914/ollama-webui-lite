@@ -12,7 +12,8 @@
 	import { tick } from "svelte";
 
 	import toast from "svelte-french-toast";
-
+  import { _ } from 'svelte-i18n';
+  
 	export let sendPrompt: Function;
 	export let regenerateResponse: Function;
 
@@ -348,7 +349,7 @@
 			/>
 		</div>
 		<div class=" mt-2 text-2xl text-gray-800 dark:text-gray-100 font-semibold">
-			How can I help you today?
+			{$_("Messages.Hello")}
 		</div>
 	</div>
 {:else}

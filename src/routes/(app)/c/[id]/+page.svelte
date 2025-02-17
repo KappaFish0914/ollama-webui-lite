@@ -13,7 +13,7 @@
 	import ModelSelector from '$lib/components/chat/ModelSelector.svelte';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import { page } from '$app/stores';
-
+  
 	let loaded = false;
 	let stopResponseFlag = false;
 	let autoScroll = true;

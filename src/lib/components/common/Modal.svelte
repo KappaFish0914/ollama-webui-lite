@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
-
+  import { _ } from 'svelte-i18n';
+  
 	export let show = true;
 	let mounted = false;
 

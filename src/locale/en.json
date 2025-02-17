@@ -1,0 +1,40 @@
+{
+    "Sidebar": {
+        "NewChat": "new chat",
+        "Search": "Search",
+        "Import": "Import",
+        "Export": "Export",
+        "Confirm": "Are you sure?",
+        "Clear": "Clear Conversations",
+        "Settings": "Settings"
+    },
+    "SettingModal": {
+        "Settings": "Settings",
+        "General": "General",
+        "Advanced": "Advanced",
+        "Models": "Models",
+        "About": "About",
+        "Theme": "Theme",
+        "Trouble": "Trouble accessing Ollama?",
+        "Help": "Click here for help.",
+        "Save": "Save",
+        "PullModel": "Pull a model",
+
+        "PullModelPlaceholder": "Enter model tag (e.g. mistral:7b)",
+        "PullModelTip": "To access the available model names for downloading, ",
+        "Click": "click here.",
+        "DeleteModel": "Delete a model",
+        "SelectModel": "Select a model"
+    },
+    "ModalSelector": {
+        "SelectModal": "Select a model",
+        "SetDefault": "Set as default"
+    },
+    "Messages": {
+        "Hello": "How can I help you today?"
+    },
+    "MessageInput": {
+        "SendMessagePlaceholder": "Send a message",
+        "Tip": "LLMs can make mistakes. Verify important information."
+    }
+}

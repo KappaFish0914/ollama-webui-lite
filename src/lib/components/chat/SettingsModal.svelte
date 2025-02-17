@@ -7,6 +7,7 @@
 	import { info, models, settings } from "$lib/stores";
 	import { splitStream } from "$lib/utils";
 	import Advanced from "./Settings/Advanced.svelte";
+  import { _ } from 'svelte-i18n';
 
 	export let show = false;
 
@@ -256,7 +257,7 @@
 <Modal bind:show>
 	<div>
 		<div class=" flex justify-between dark:text-gray-300 px-5 py-4">
-			<div class=" text-lg font-medium self-center">Settings</div>
+			<div class=" text-lg font-medium self-center">{$_("SettingModal.Settings")}</div>
 			<button
 				class="self-center"
 				on:click={() => {
@@ -304,7 +305,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">General</div>
+					<div class=" self-center">{$_("SettingModal.General")}</div>
 				</button>
 
 				<button
@@ -328,7 +329,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">Advanced</div>
+					<div class=" self-center">{$_("SettingModal.Advanced")}</div>
 				</button>
 
 				<button
@@ -354,7 +355,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">Models</div>
+					<div class=" self-center">{$_("SettingModal.Models")}</div>
 				</button>
 
 				<button
@@ -380,7 +381,7 @@
 							/>
 						</svg>
 					</div>
-					<div class=" self-center">About</div>
+					<div class=" self-center">{$_("SettingModal.About")}</div>
 				</button>
 			</div>
 			<div class="flex-1 md:min-h-[340px]">
@@ -390,7 +391,7 @@
 							<div class=" mb-1 text-sm font-medium">WebUI Settings</div>
 
 							<div class=" py-0.5 flex w-full justify-between">
-								<div class=" self-center text-xs font-medium">Theme</div>
+								<div class=" self-center text-xs font-medium">{$_("SettingModal.Theme")}</div>
 
 								<button
 									class="p-1 px-3 text-xs flex rounded transition"
@@ -463,12 +464,13 @@
 							</div>
 
 							<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-								Trouble accessing Ollama? <a
+								{$_("SettingModal.Trouble")} <a
 									class=" text-gray-500 dark:text-gray-300 font-medium"
 									href="https://github.com/ollama-webui/ollama-webui#troubleshooting"
 									target="_blank"
 								>
-									Click here for help.
+									
+                  {$_("SettingModal.Help")}
 								</a>
 							</div>
 						</div>
@@ -485,7 +487,7 @@
 									show = false;
 								}}
 							>
-								Save
+                {$_("SettingModal.Save")}
 							</button>
 						</div>
 					</div>
@@ -552,19 +554,19 @@
 									show = false;
 								}}
 							>
-								Save
+              {$_("SettingModal.Save")}
 							</button>
 						</div>
 					</div>
 				{:else if selectedTab === "models"}
 					<div class="flex flex-col space-y-3 text-sm mb-10">
 						<div>
-							<div class=" mb-2.5 text-sm font-medium">Pull a model</div>
+							<div class=" mb-2.5 text-sm font-medium">{$_("SettingModal.PullModel")}</div>
 							<div class="flex w-full">
 								<div class="flex-1 mr-2">
 									<input
 										class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
-										placeholder="Enter model tag (e.g. mistral:7b)"
+										placeholder="{$_("SettingModal.PullModelPlaceholder")}"
 										bind:value={modelTag}
 									/>
 								</div>
@@ -591,10 +593,10 @@
 							</div>
 
 							<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-								To access the available model names for downloading, <a
+								{$_("SettingModal.PullModelTip")}<a
 									class=" text-gray-500 dark:text-gray-300 font-medium"
 									href="https://ollama.ai/library"
-									target="_blank">click here.</a
+									target="_blank">{$_("SettingModal.Click")}</a
 								>
 							</div>
 
@@ -618,16 +620,16 @@
 						<hr class=" dark:border-gray-700" />
 
 						<div>
-							<div class=" mb-2.5 text-sm font-medium">Delete a model</div>
+							<div class=" mb-2.5 text-sm font-medium">{$_("SettingModal.DeleteModel")}</div>
 							<div class="flex w-full">
 								<div class="flex-1 mr-2">
 									<select
 										class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
 										bind:value={deleteModelTag}
-										placeholder="Select a model"
+										placeholder="{$_("SettingModal.SelectModel")}"
 									>
 										{#if !deleteModelTag}
-											<option value="" disabled selected>Select a model</option>
+											<option value="" disabled selected>{$_("SettingModal.SelectModel")}</option>
 										{/if}
 										{#each $models.filter((m) => m.size != null) as model}
 											<option value={model.name} class="bg-gray-100 dark:bg-gray-700"

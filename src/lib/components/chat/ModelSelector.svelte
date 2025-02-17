@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { models, showSettings, settings } from "$lib/stores";
 	import toast from "svelte-french-toast";
+  import { _ } from 'svelte-i18n';
 
 	export let selectedModels = [""];
 	export let disabled = false;
@@ -21,7 +22,7 @@
 				bind:value={selectedModel}
 				{disabled}
 			>
-				<option class=" text-gray-700" value="" selected>Select a model</option>
+				<option class=" text-gray-700" value="" selected>{$_("ModalSelector.SelectModal")}</option>
 
 				{#each $models as model}
 					{#if model.name === "hr"}
@@ -113,5 +114,5 @@
 </div>
 
 <div class="text-left mt-1.5 text-xs text-gray-500">
-	<button on:click={saveDefaultModel}> Set as default</button>
+	<button on:click={saveDefaultModel}> {$_("ModalSelector.SetDefault")}</button>
 </div>

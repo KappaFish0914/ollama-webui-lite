@@ -12,7 +12,7 @@
 	import { OLLAMA_API_BASE_URL } from "$lib/constants";
 
 	let requiredOllamaVersion = "0.1.16";
-	let loaded = false;
+	let loaded = true;
 
 	const getModels = async () => {
 		let models = [];

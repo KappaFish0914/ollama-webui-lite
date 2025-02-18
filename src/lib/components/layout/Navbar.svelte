@@ -9,9 +9,9 @@
 
 <nav
 	id="nav"
-	class=" fixed py-2.5 top-0 flex flex-row justify-center bg-white/95 dark:bg-gray-800/90 dark:text-gray-200 backdrop-blur-xl w-screen z-30"
+	class="py-2.5 top-0 flex flex-row justify-center bg-white/95 dark:bg-gray-800/90 dark:text-gray-200 backdrop-blur-xl z-30"
 >
-	<div class=" flex max-w-3xl w-full mx-auto px-3">
+	<div class=" flex w-full mx-auto px-3">
 		<div class="flex w-full max-w-full">
 			<div class="pr-2 self-center">
 				<button

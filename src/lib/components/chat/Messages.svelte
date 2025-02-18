@@ -339,7 +339,7 @@
 </script>
 
 {#if messages.length == 0}
-	<div class="m-auto text-center max-w-md pb-56 px-2">
+	<div class="m-auto text-center w-full pb-56 px-2">
 		<div class="flex justify-center mt-8">
 			<img
 				src="/ollama.png"
@@ -355,7 +355,7 @@
 {:else}
 	{#each messages as message, messageIdx}
 		<div class=" w-full">
-			<div class="flex justify-between px-5 mb-3 max-w-3xl mx-auto rounded-lg group">
+			<div class="flex justify-between px-5 mb-3 w-full mx-auto rounded-lg group">
 				<div class=" flex w-full">
 					<div class=" mr-4">
 						{#if message.role === "user"}

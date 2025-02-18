@@ -9,7 +9,7 @@
 	export let messages = [];
 </script>
 
-<div class="fixed bottom-0 w-full">
+<div class="bottom-0 w-full">
 	<div class="px-2.5 pt-2.5 -mb-0.5 mx-auto inset-x-0 bg-transparent flex justify-center">
 		{#if autoScroll === false && messages.length > 0}
 			<div class=" flex justify-center mb-4">
@@ -37,7 +37,7 @@
 		{/if}
 	</div>
 	<div class="bg-white dark:bg-gray-800">
-		<div class="max-w-3xl px-2.5 -mb-0.5 mx-auto inset-x-0">
+		<div class="w-full px-2.5 -mb-0.5 mx-auto inset-x-0">
 			<div class="bg-gradient-to-t from-white dark:from-gray-800 from-40% pb-2">
 				<form
 					class=" flex flex-col relative w-full rounded-xl border dark:border-gray-600 bg-white dark:bg-gray-800 dark:text-gray-100"

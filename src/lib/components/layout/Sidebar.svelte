@@ -80,8 +80,8 @@
 <div
 	bind:this={navElement}
 	class="h-screen {show
-		? ''
-		: '-translate-x-[260px]'}  w-[260px] fixed top-0 left-0 z-40 transition bg-[#0a0a0a] text-gray-200 shadow-2xl text-sm
+		? 'w-[260px]'
+		: 'w-0'} overflow-hidden top-0 left-0 z-40 transition bg-[#0a0a0a] text-gray-200 shadow-2xl text-sm
         "
 >
 	<div class="py-2.5 my-auto flex flex-col justify-between h-screen">
@@ -522,7 +522,7 @@
 	</div>
 
 	<div
-		class="fixed left-0 top-[50dvh] z-40 -translate-y-1/2 transition-transform translate-x-[255px] md:translate-x-[260px] rotate-0"
+		class="{show ? 'translate-x-[255px] md:translate-x-[260px]' : ''} fixed left-0 top-[50dvh] z-40 -translate-y-1/2 transition-transform  rotate-0 mr-20px"
 	>
 		<button
 			class=" group"

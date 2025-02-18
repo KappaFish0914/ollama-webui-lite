@@ -6,7 +6,7 @@
 
 	import { info, showSettings, settings, models, db, chats, chatId } from "$lib/stores";
 
-	import SettingsModal from "$lib/components/chat/SettingsModal.svelte";
+	// import SettingsModal from "$lib/components/chat/SettingsModal.svelte";
 	import Sidebar from "$lib/components/layout/Sidebar.svelte";
 	import toast from "svelte-french-toast";
 	import { OLLAMA_API_BASE_URL } from "$lib/constants";
@@ -222,8 +222,7 @@
 		>
 			<Sidebar />
 
-			<SettingsModal bind:show={$showSettings} />
-
+			<!-- <SettingsModal bind:show={$showSettings} /> -->
 			<slot />
 		</div>
 	</div>

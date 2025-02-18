@@ -509,7 +509,6 @@
 									href="https://github.com/ollama-webui/ollama-webui#troubleshooting"
 									target="_blank"
 								>
-									
                   {$_("SettingModal.Help")}
 								</a>
 							</div>

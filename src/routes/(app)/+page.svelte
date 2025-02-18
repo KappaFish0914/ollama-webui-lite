@@ -6,13 +6,14 @@
 	import { onMount, tick } from "svelte";
 	import { splitStream } from "$lib/utils";
 
-	import { settings, db, chats, chatId } from "$lib/stores";
+	import { settings, db, chats, chatId, showSettings } from "$lib/stores";
 
 	import MessageInput from "$lib/components/chat/MessageInput.svelte";
 	import Messages from "$lib/components/chat/Messages.svelte";
 	import ModelSelector from "$lib/components/chat/ModelSelector.svelte";
 	import Navbar from "$lib/components/layout/Navbar.svelte";
 	import { page } from "$app/stores";
+	import Settings from "$lib/components/chat/Settings.svelte";
 
 	let stopResponseFlag = false;
 	let autoScroll = true;
@@ -417,25 +418,34 @@
 		autoScroll = window.innerHeight + window.scrollY >= document.body.offsetHeight - 40;
 	}}
 />
-
-<Navbar {title} />
-<div class="min-h-screen w-full flex justify-center">
-	<div class=" py-2.5 flex flex-col justify-between w-full">
-		<div class="max-w-2xl mx-auto w-full px-3 md:px-0 mt-10">
-			<ModelSelector bind:selectedModels disabled={messages.length > 0} />
-		</div>
-
-		<div class=" h-full mt-10 mb-32 w-full flex flex-col">
-			<Messages
-				{selectedModels}
-				bind:history
-				bind:messages
-				bind:autoScroll
-				{sendPrompt}
-				{regenerateResponse}
-			/>
-		</div>
-	</div>
-
-	<MessageInput bind:prompt bind:autoScroll {messages} {submitPrompt} {stopResponse} />
-</div>
+{#if $showSettings}
+  <div class="min-h-screen w-full flex justify-center">
+    <div class=" py-2.5 flex flex-col justify-between w-full">
+      <div class="max-w-2xl mx-auto w-full px-3 md:px-0 mt-10">
+        <Settings></Settings>
+      </div>
+    </div>
+  </div>
+{:else}
+  <Navbar {title} />
+  <div class="min-h-screen w-full flex justify-center">
+    <div class=" py-2.5 flex flex-col justify-between w-full">
+      <div class="max-w-2xl mx-auto w-full px-3 md:px-0 mt-10">
+        <ModelSelector bind:selectedModels disabled={messages.length > 0} />
+      </div>
+  
+      <div class=" h-full mt-10 mb-32 w-full flex flex-col">
+        <Messages
+          {selectedModels}
+          bind:history
+          bind:messages
+          bind:autoScroll
+          {sendPrompt}
+          {regenerateResponse}
+        />
+      </div>
+    </div>
+  
+    <MessageInput bind:prompt bind:autoScroll {messages} {submitPrompt} {stopResponse} />
+  </div>
+{/if}

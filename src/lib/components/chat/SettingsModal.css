@@ -1,0 +1,54 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari and Opera */
+}
+
+.tabs {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+.library {
+    text-align: right;
+}
+
+.library-table {
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin: 8px 0 0 0;
+    width: 100%;
+    text-align: center;
+}
+
+.library-table thead {
+    background-color: rgb(228 240 245);
+    width: 100%;
+}
+
+.library-table .library-table-th:nth-child(1) {}
+
+.library-table .library-table-th:nth-child(1) {}
+
+.library-table .library-table-th:nth-child(1) {}
+
+.library-table .library-table-th:nth-child(1) {}
+
+.library-table .library-table-th:nth-child(1) {}

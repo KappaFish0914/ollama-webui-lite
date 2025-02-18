@@ -24,7 +24,16 @@
         "PullModelTip": "To access the available model names for downloading, ",
         "Click": "click here.",
         "DeleteModel": "Delete a model",
-        "SelectModel": "Select a model"
+        "SelectModel": "Select a model",
+        "Library": {
+            "Title": "Library",
+            "Add": "Add",
+            "TableThTitle": "title",
+            "TableThStatus": "status",
+            "TableThModel": "model",
+            "TableThCreateTime": "createTime",
+            "TableThOperation": "operation"
+        }
     },
     "ModalSelector": {
         "SelectModal": "Select a model",

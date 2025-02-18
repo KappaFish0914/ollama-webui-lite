@@ -8,7 +8,7 @@
 	import { splitStream } from "$lib/utils";
 	import Advanced from "./Settings/Advanced.svelte";
   import { _ } from 'svelte-i18n';
-
+  import './SettingsModal.css';
 	export let show = false;
 
 	const saveSettings = async (updated) => {
@@ -154,7 +154,9 @@
 		modelTag = "";
 		models.set(await getModels());
 	};
-
+  /**
+   * 删除模型
+  */
 	const deleteModelHandler = async () => {
 		const res = await fetch(`${API_BASE_URL}/delete`, {
 			method: "DELETE",
@@ -232,6 +234,12 @@
 		console.log(res);
 		models.push(...(res?.models ?? []));
 	};
+  /**
+   * @description 添加新知识
+   */
+  const addLibraryHandler = async () => {
+    toast.success('添加新知识');
+  }
 
 	onMount(() => {
 		let settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
@@ -356,6 +364,38 @@
 						</svg>
 					</div>
 					<div class=" self-center">{$_("SettingModal.Models")}</div>
+				</button>
+
+        <button
+					class="px-2.5 py-2.5 min-w-fit rounded-lg flex-1 md:flex-none flex text-right transition {selectedTab ===
+					'models'
+						? 'bg-gray-200 dark:bg-gray-700'
+						: ' hover:bg-gray-300 dark:hover:bg-gray-800'}"
+					on:click={() => {
+						selectedTab = "library";
+					}}
+				>
+					<div class=" self-center mr-2">
+						<!-- <img src="../../../assets/images/libraryIcon.svg" style="width: 20px; height: 20px;" alt="library"/> -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              style="width: 20px;height: 20px;"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-blocks text-gray-600 dark:text-white h-6 w-6 shrink-0" 
+              aria-hidden="true"
+            >
+              <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+              <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path>
+            </svg>
+					</div>
+					<div class=" self-center">{$_("SettingModal.Library.Title")}</div>
 				</button>
 
 				<button
@@ -660,6 +700,43 @@
 							</div>
 						</div>
 					</div>
+        {:else if selectedTab === "library"}
+        <div class="flex flex-col h-full justify-between space-y-3 text-sm mb-6 library">
+          <div class="space-y-3">
+            <div>
+              <button
+                class="py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-gray-100 transition rounded"
+                on:click={() => {
+                  addLibraryHandler();
+                }}
+              >
+                {$_("SettingModal.Library.Add")}
+              </button>
+              <div class=" mb-1 text-sm font-medium">
+                <table class="library-table">
+                  <thead>
+                    <tr>
+                      <th class="library-table-th" scope="col">{$_("SettingModal.Library.TableThTitle")}</th>
+                      <th class="library-table-th" scope="col">{$_("SettingModal.Library.TableThStatus")}</th>
+                      <th class="library-table-th" scope="col">{$_("SettingModal.Library.TableThModel")}</th>
+                      <th class="library-table-th" scope="col">{$_("SettingModal.Library.TableThCreateTime")}</th>
+                      <th class="library-table-th" scope="col">{$_("SettingModal.Library.TableThOperation")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
 				{:else if selectedTab === "about"}
 					<div class="flex flex-col h-full justify-between space-y-3 text-sm mb-6">
 						<div class=" space-y-3">
@@ -710,23 +787,5 @@
 </Modal>
 
 <style>
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-		/* display: none; <- Crashes Chrome on hover */
-		-webkit-appearance: none;
-		margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-	}
-
-	.tabs::-webkit-scrollbar {
-		display: none; /* for Chrome, Safari and Opera */
-	}
-
-	.tabs {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-	}
-
-	input[type="number"] {
-		-moz-appearance: textfield; /* Firefox */
-	}
+	
 </style>

@@ -23,7 +23,17 @@
         "PullModelTip": "输入模型名称拉取模型.",
         "Click": "点击这里.",
         "DeleteModel": "删除模型",
-        "SelectModel": "选择模型"
+        "SelectModel": "选择模型",
+        "Library": {
+            "Title": "知识库",
+            "Add": "添加新知识",
+            "TableThTitle": "标题",
+            "TableThStatus": "状态",
+            "TableThModel": "嵌入模型",
+            "TableThCreateTime": "创建时间",
+            "TableThOperation": "操作"
+        }
+
     },
     "ModalSelector": {
         "SelectModal": "选择模型",

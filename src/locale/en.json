@@ -13,7 +13,10 @@
     },
     "SettingModal": {
         "Settings": "Settings",
-        "General": "General",
+        "General": {
+            "Title": "General",
+            "APIURL": "Ollama Server URL"
+        },
         "Advanced": "Advanced",
         "Models": "Models",
         "About": "About",
@@ -49,7 +52,11 @@
             "TableThTitle": "Title",
             "TableThContent": "Content",
             "TableThCreateTime": "CreateTime",
-            "TableThOperation": "Operation"
+            "TableThOperation": "Operation",
+            "TableThEdit": "Edit",
+            "TableThDelete": "Delete",
+            "TitlePlaceholder": "Please input title",
+            "ContentPlaceholder": "Please input prompt"
         }
     },
     "ModalSelector": {

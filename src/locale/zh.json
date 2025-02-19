@@ -13,7 +13,10 @@
     },
     "SettingModal": {
         "Settings": "设置",
-        "General": "通用",
+        "General": {
+            "Title": "通用",
+            "APIURL": "API地址"
+        },
         "Advanced": "高级",
         "Models": "模型",
         "About": "关于",
@@ -48,7 +51,11 @@
             "TableThTitle": "标题",
             "TableThContent": "提示词",
             "TableThCreateTime": "创建时间",
-            "TableThOperation": "操作"
+            "TableThOperation": "操作",
+            "TableThEdit": "修改",
+            "TableThDelete": "删除",
+            "TitlePlaceholder": "请输入标题",
+            "ContentPlaceholder": "请输入提示词"
         }
     },
     "ModalSelector": {

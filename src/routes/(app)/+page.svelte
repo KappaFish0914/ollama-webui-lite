@@ -429,9 +429,9 @@
 {:else}
   <div class="flex flex-col w-full">
     <Navbar {title} />
-    <div class="min-h-screen w-full">
-      <div class=" py-2.5 flex flex-col justify-between w-full">
-        <div class="\mx-auto w-full px-3 mt-10">
+    <div class="h-[calc(100vh-48px)] w-full">
+      <div class="h-[calc(100vh-136px)] py-2.5 flex flex-col justify-between w-full">
+        <div class="\mx-auto w-full px-3">
           <ModelSelector bind:selectedModels disabled={messages.length > 0} />
         </div>
     

@@ -81,7 +81,7 @@
 	bind:this={navElement}
 	class="h-screen {show
 		? 'w-[260px]'
-		: 'w-0'} overflow-hidden top-0 left-0 z-40 transition bg-[#0a0a0a] text-gray-200 shadow-2xl text-sm
+		: 'w-0'} overflow-hidden top-0 left-0 z-40 transition-all bg-[#0a0a0a] text-gray-200 shadow-2xl text-sm
         "
 >
 	<div class="py-2.5 my-auto flex flex-col justify-between h-screen">

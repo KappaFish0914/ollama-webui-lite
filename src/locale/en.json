@@ -36,6 +36,12 @@
             "TableThModel": "model",
             "TableThCreateTime": "createTime",
             "TableThOperation": "operation"
+        },
+        "Network": {
+            "Title": "Network",
+            "Enable": "Enable",
+            "Engine": "Engine",
+            "Select a engine": "Select a engine"
         }
     },
     "ModalSelector": {

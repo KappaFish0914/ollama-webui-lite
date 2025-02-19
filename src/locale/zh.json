@@ -1,4 +1,7 @@
 {
+    "Common": {
+        "ModelNotSelected": "请选择模型"
+    },
     "Sidebar": {
         "NewChat": "新对话",
         "Search": "搜索",

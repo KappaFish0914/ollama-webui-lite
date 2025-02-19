@@ -14,7 +14,7 @@
 	import Navbar from "$lib/components/layout/Navbar.svelte";
 	import { page } from "$app/stores";
 	import Settings from "$lib/components/chat/Settings.svelte";
-
+  import { t } from 'svelte-i18n';
 	let stopResponseFlag = false;
 	let autoScroll = true;
 
@@ -244,7 +244,7 @@
 				}
 
 				await $db.updateChatById(_chatId, {
-					title: title === "" ? "New Chat" : title,
+					title: title === "" ? $t("Sidebar.NewChat") : title,
 					models: selectedModels,
 					options: {
 						seed: $settings.seed ?? undefined,
@@ -298,7 +298,7 @@
 		console.log("submitPrompt", _chatId);
 
 		if (selectedModels.includes("")) {
-			toast.error("Model not selected");
+      toast.error($t("Common.ModelNotSelected"));
 		} else if (messages.length != 0 && messages.at(-1).done != true) {
 			console.log("wait");
 		} else {
@@ -324,7 +324,7 @@
 			if (messages.length == 1) {
 				await $db.createNewChat({
 					id: _chatId,
-					title: "New Chat",
+					title: $t("Sidebar.NewChat"),
 					models: selectedModels,
 					options: {
 						seed: $settings.seed ?? undefined,
@@ -398,7 +398,7 @@
 				});
 
 			if (res) {
-				await setChatTitle(_chatId, res.response === "" ? "New Chat" : res.response);
+				await setChatTitle(_chatId, res.response === "" ? $t("Sidebar.NewChat") : res.response);
 			}
 		} else {
 			await setChatTitle(_chatId, `${userPrompt}`);

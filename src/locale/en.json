@@ -1,6 +1,9 @@
 {
+    "Common": {
+        "ModelNotSelected": "Model not selected"
+    },
     "Sidebar": {
-        "NewChat": "new chat",
+        "NewChat": "New Chat",
         "Search": "Search",
         "Import": "Import",
         "Export": "Export",

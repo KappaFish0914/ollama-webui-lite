@@ -6,14 +6,15 @@
 	import { tick } from 'svelte';
 	import { convertMessagesToHistory, splitStream } from '$lib/utils';
 	import { goto } from '$app/navigation';
-	import { models, settings, db, chats, chatId } from '$lib/stores';
+	import { models, settings, db, chats, chatId, showSettings } from '$lib/stores';
 
 	import MessageInput from '$lib/components/chat/MessageInput.svelte';
 	import Messages from '$lib/components/chat/Messages.svelte';
 	import ModelSelector from '$lib/components/chat/ModelSelector.svelte';
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import { page } from '$app/stores';
-  
+  import { t, _ } from 'svelte-i18n';
+
 	let loaded = false;
 	let stopResponseFlag = false;
 	let autoScroll = true;
@@ -284,7 +285,7 @@
 				}
 
 				await $db.updateChatById(_chatId, {
-					title: title === '' ? 'New Chat' : title,
+					title: title === '' ? $t("Sidebar.NewChat") : title,
 					models: selectedModels,
 					system: $settings.system ?? undefined,
 					options: {
@@ -365,7 +366,7 @@
 			if (messages.length == 1) {
 				await $db.createNewChat({
 					id: _chatId,
-					title: 'New Chat',
+					title: $t("Sidebar.NewChat"),
 					models: selectedModels,
 					system: $settings.system ?? undefined,
 					options: {
@@ -441,7 +442,7 @@
 				});
 
 			if (res) {
-				await setChatTitle(_chatId, res.response === '' ? 'New Chat' : res.response);
+				await setChatTitle(_chatId, res.response === '' ? $t("Sidebar.NewChat") : res.response);
 			}
 		} else {
 			await setChatTitle(_chatId, `${userPrompt}`);
@@ -463,33 +464,15 @@
 />
 
 {#if loaded}
-	<!-- <Navbar {title} shareEnabled={messages.length > 0} />
-	<div class="min-h-screen w-full flex justify-center">
-		<div class=" py-2.5 flex flex-col justify-between w-full">
-			<div class="max-w-2xl mx-auto w-full px-3 md:px-0 mt-10">
-				<ModelSelector bind:selectedModels disabled={messages.length > 0} />
-			</div>
-
-			<div class=" h-full mt-10 mb-32 w-full flex flex-col">
-				<Messages
-					{selectedModels}
-					bind:history
-					bind:messages
-					bind:autoScroll
-					{sendPrompt}
-					{regenerateResponse}
-				/>
-			</div>
-		</div>
-
-		<MessageInput
-			bind:prompt
-			bind:autoScroll
-			{messages}
-			{submitPrompt}
-			{stopResponse}
-		/>
-	</div> -->
+  {#if $showSettings}
+  <div class="min-h-screen w-full flex justify-center">
+    <div class=" py-2.5 flex flex-col justify-between w-full h-full">
+      <div class="mx-auto w-full px-3 md:px-0 w-full">
+        <Settings></Settings>
+      </div>
+    </div>
+  </div>
+  {:else}
   <div class="flex flex-col w-full">
     <Navbar {title} shareEnabled={messages.length > 0} />
     <div class="h-[calc(100vh-48px)] w-full">
@@ -513,4 +496,5 @@
       <MessageInput bind:prompt bind:autoScroll {messages} {submitPrompt} {stopResponse} />
     </div>
   </div>
+  {/if}
 {/if}

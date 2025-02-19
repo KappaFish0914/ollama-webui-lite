@@ -42,6 +42,14 @@
             "Enable": "Enable",
             "Engine": "Engine",
             "Select a engine": "Select a engine"
+        },
+        "Prompt": {
+            "Title": "Prompt",
+            "Add": "Add custom prompt",
+            "TableThTitle": "Title",
+            "TableThContent": "Content",
+            "TableThCreateTime": "CreateTime",
+            "TableThOperation": "Operation"
         }
     },
     "ModalSelector": {

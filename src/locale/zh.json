@@ -41,8 +41,15 @@
             "Enable": "启用联网搜索",
             "Engine": "联网搜索引擎",
             "Select a engine": "选择搜索引擎"
+        },
+        "Prompt": {
+            "Title": "提示词",
+            "Add": "新增提示词",
+            "TableThTitle": "标题",
+            "TableThContent": "提示词",
+            "TableThCreateTime": "创建时间",
+            "TableThOperation": "操作"
         }
-
     },
     "ModalSelector": {
         "SelectModal": "选择模型",

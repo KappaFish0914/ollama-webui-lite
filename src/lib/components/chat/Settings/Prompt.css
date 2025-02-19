@@ -1,0 +1,29 @@
+.prompt {
+    text-align: right;
+}
+
+.prompt-table {
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin: 8px 0 0 0;
+    width: 100%;
+    text-align: center;
+}
+
+.prompt-table thead {
+    background-color: rgb(228 240 245);
+    width: 100%;
+}
+
+.prompt-table .prompt-table-th:nth-child(1) {}
+
+.prompt-table .prompt-table-th:nth-child(1) {}
+
+.prompt-table .prompt-table-th:nth-child(1) {}
+
+.prompt-table .prompt-table-th:nth-child(1) {}
+
+.prompt-table .prompt-table-th:nth-child(1) {}

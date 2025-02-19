@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import toast from "svelte-french-toast";
   import { _ } from 'svelte-i18n';
   import Switch from "$lib/components/common/Switch.svelte";

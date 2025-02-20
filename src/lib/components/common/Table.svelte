@@ -3,28 +3,30 @@
   import { _ } from 'svelte-i18n';
   import Empty from '$lib/components/common/Empty.svelte';
   import './Table.css';
+  import type { Columns } from './type'
+	import Spinner from './Spinner.svelte';
   let dispatch = createEventDispatcher()
   // 列信息
-  export let columns = []
+  export let columns: Columns = []
   // 数据信息
-  export let tableData = []
+  export let tableData: any[] = []
   // 显示操作按钮
   export let showOperation = false
 
   export let loading = false
   
-  function handleEdit(info) {
+  function handleEdit(info: any) {
     dispatch('edit', info)
   }
 
-  function handleDelete(info) {
+  function handleDelete(info: any) {
     dispatch('delete', info)
   }
 </script>
 
 <div class="table w-full">
   {#if tableData.length === 0}
-    <table class="table border-2">
+    <table class="w-full border-b-2">
       <thead>
         {#each columns as column}
         <th
@@ -37,15 +39,22 @@
         {/each}
       </thead>
     </table>
+    {#if loading}
+    <div class="border-2 border-t-0 text-center flex justify-center py-4">
+      <Spinner theme="blue"/>
+    </div>
+    {:else}
     <div class="border-2 border-t-0 text-center flex justify-center">
       <Empty description="暂无数据"/>
     </div>
+    {/if}
+    
   {:else}
-  <table>
+  <table class="w-full">
     <thead>
       {#each columns as column}
       <th
-        class="table-th border-r-2 w-[10%] py-1 px-2"
+        class="table-th border-r-2 border-b-2 w-[10%] py-1 px-2"
         scope="col"
         style="width:{column.width};"
       >

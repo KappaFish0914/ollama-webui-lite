@@ -37,7 +37,12 @@
             "TableThStatus": "状态",
             "TableThModel": "嵌入模型",
             "TableThCreateTime": "创建时间",
-            "TableThOperation": "操作"
+            "TableThOperation": "操作",
+            "Modal": {
+                "Title": "标题",
+                "TitlePlaceholder": "请输入标题",
+                "model": "嵌入库模型"
+            }
         },
         "Network": {
             "Title": "联网搜索",
@@ -54,8 +59,12 @@
             "TableThOperation": "操作",
             "TableThEdit": "修改",
             "TableThDelete": "删除",
-            "TitlePlaceholder": "请输入标题",
-            "ContentPlaceholder": "请输入提示词"
+            "Modal": {
+                "Title": "标题",
+                "TitlePlaceholder": "请输入标题",
+                "ContentPlaceholder": "请输入提示词"
+            }
+
         }
     },
     "ModalSelector": {

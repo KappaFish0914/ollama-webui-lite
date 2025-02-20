@@ -4,9 +4,10 @@
   import toast from "svelte-french-toast";
   import Modal from "$lib/components/common/Modal.svelte";
   import "./Prompt.css";
-	import Empty from '$lib/components/common/Empty.svelte';
   import Table from '$lib/components/common/Table.svelte';
-  let formData= {
+  import type { Prompt } from './type'
+  
+  let formData: Prompt= {
     id: "",
     title: "",
     content: ``,
@@ -28,7 +29,6 @@
       key: 'createTime',
       width: '15%'
     },
-    
     {
       name: $_("SettingModal.Prompt.TableThOperation"),
       key: 'operation',
@@ -44,7 +44,8 @@
       // }
     }
   ]
-  let tableData = []
+  let tableData: Prompt[] = []
+  let loading = false
   let pageInfo = {
     current: 1,
     size: 10,
@@ -64,7 +65,7 @@
   /**
    * @description 修改提示词
    */
-  function editPrompt(info) {
+  function editPrompt(info: { detail: Prompt }) {
     // TODO 修改提示词
     console.log('修改提示词', info.detail)
     toast.success('修改提示词' + info.detail.id)
@@ -76,7 +77,7 @@
   /**
    * @description 删除提示词
    */
-   function deletePrompt(info) {
+   function deletePrompt(info: { detail: Prompt }) {
     // TODO 删除提示词
     console.log('删除提示词', info.detail.id)
     toast.success('删除提示词' + info.detail.id)
@@ -94,8 +95,10 @@
    */
   function getData() {
     // TODO 获取提示词列表
+    loading = true
     toast.success('获取提示词列表')
     setTimeout(() => {
+      loading = false;
       tableData = [
         {
           id: "1",
@@ -147,7 +150,7 @@
         <Table
           bind:columns={columns}
           bind:tableData={tableData}
-          showOperation={true}
+          bind:loading={loading}
           on:edit={editPrompt}
           on:delete={deletePrompt}
         />
@@ -181,21 +184,21 @@
     <div class="flex flex-col w-full px-4 pb-4 md:space-x-4">
       <div class="prompt-form">
         <div class="prompt-form-item">
-          <div class="prompt-form-item-label mb-2 text-sm font-medium">标题</div>
+          <div class="prompt-form-item-label mb-2 text-sm font-medium">{$_("SettingModal.Prompt.Modal.Title")}</div>
           <div class="prompt-form-item-value">
             <input
               class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
-              placeholder="{$_("SettingModal.Prompt.TitlePlaceholder")}"
+              placeholder="{$_("SettingModal.Prompt.Modal.TitlePlaceholder")}"
               bind:value={formData.title}
             />
           </div>
         </div>
         <div class="prompt-form-item">
-          <div class="prompt-form-item-label my-2 text-sm font-medium">提示词</div>
+          <div class="prompt-form-item-label my-2 text-sm font-medium">{$_("SettingModal.Prompt.Title")}</div>
           <div class="prompt-form-item-value">
             <textarea
               class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
-              placeholder="{$_("SettingModal.Prompt.ContentPlaceholder")}"
+              placeholder="{$_("SettingModal.Prompt.Modal.ContentPlaceholder")}"
               rows="8"
               bind:value={formData.content}
             />

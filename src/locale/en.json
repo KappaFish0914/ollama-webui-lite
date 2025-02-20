@@ -55,8 +55,11 @@
             "TableThOperation": "Operation",
             "TableThEdit": "Edit",
             "TableThDelete": "Delete",
-            "TitlePlaceholder": "Please input title",
-            "ContentPlaceholder": "Please input prompt"
+            "Modal": {
+                "Title": "Title",
+                "TitlePlaceholder": "Please input title",
+                "ContentPlaceholder": "Please input prompt",
+            }
         }
     },
     "ModalSelector": {

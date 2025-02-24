@@ -1,6 +1,10 @@
 {
     "Common": {
-        "ModelNotSelected": "Model not selected"
+        "ModelNotSelected": "Model not selected",
+        "Upload": {
+            "Title": "Click to upload",
+            "Tips": "Suport TXT,MD,HTML,PDF,DOCX,PPTX,XLS,EPUB..."
+        }
     },
     "Sidebar": {
         "NewChat": "New Chat",
@@ -38,7 +42,13 @@
             "TableThStatus": "status",
             "TableThModel": "model",
             "TableThCreateTime": "createTime",
-            "TableThOperation": "operation"
+            "TableThOperation": "operation",
+            "Modal": {
+                "Title": "Title",
+                "TitlePlaceholder": "Please input title",
+                "Model": "Model Tag",
+                "Upload": "File"
+            }
         },
         "Network": {
             "Title": "Network",

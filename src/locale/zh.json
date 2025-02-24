@@ -1,6 +1,10 @@
 {
     "Common": {
-        "ModelNotSelected": "请选择模型"
+        "ModelNotSelected": "请选择模型",
+        "Upload": {
+            "Title": "点击此处上传文件",
+            "Tips": "支持 TXT,MD,HTML,PDF,DOCX,PPTX,XLS,EPUB...格式"
+        }
     },
     "Sidebar": {
         "NewChat": "新对话",
@@ -41,7 +45,8 @@
             "Modal": {
                 "Title": "标题",
                 "TitlePlaceholder": "请输入标题",
-                "model": "嵌入库模型"
+                "Model": "嵌入库模型",
+                "Upload": "文件上传"
             }
         },
         "Network": {

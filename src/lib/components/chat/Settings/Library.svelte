@@ -3,8 +3,10 @@ import { _ } from 'svelte-i18n';
 import toast from "svelte-french-toast";
 import Table from '$lib/components/common/Table.svelte';
 import Modal from '$lib/components/common/Modal.svelte';
+import Upload from '$lib/components/common/Upload.svelte';
+import { models } from "$lib/stores";
 import "./Library.css";
-	import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 let columns = [
   {
     name: $_("SettingModal.Library.TableThTitle"),
@@ -35,7 +37,6 @@ let columns = [
       //   `
       // }
     }
-  
 ]
 let tableData = []
 let loading = false
@@ -69,7 +70,7 @@ function getData() {
       {
         title: "知识库1",
         model: "bge-large:latest",
-        createTime: "20250220 22:00"
+        createTime: "2025-02-20 22:00"
       },
       {
         title: "知识库2",
@@ -86,8 +87,25 @@ function getData() {
 let showModal = false;
 let formData = {
   title: "",
-  modal: "",  // 嵌入模型
-  fileList: [], // 文件
+  model: "",  // 嵌入模型
+  fileList: [
+    {
+      filename: '如何零成本云端部署deepseek.pdf',
+      fileurl: 'https://www.baidu.com',
+      status: 'finished', // 状态 finished 上传完成, fail 上传失败, pending 上传中
+    },
+    {
+      filename: '支持DeepSeek-R1的国产云平台及应用.xlsx',
+      fileurl: 'https://www.baidu.com',
+      status: 'pending', // 状态 finished 上传完成, fail 上传失败, pending 上传中
+    },
+    {
+      filename: '啦拉拉.pdf',
+      fileurl: 'https://www.sina.com',
+      status: 'fail', // 状态 finished 上传完成, fail 上传失败, pending 上传中
+    },
+    
+  ], // 文件
   directory: [],  // 文件目录
   url: [],  // 网址
   siteMap: '',  // 站点地图
@@ -134,7 +152,7 @@ onMount(() => {
     </div>
   </div>
 </div>
-
+<!--  -->
 <Modal bind:show={showModal}>
   <div>
 		<div class=" flex justify-between dark:text-gray-300 px-5 py-4">
@@ -170,22 +188,25 @@ onMount(() => {
           </div>
         </div>
         <div class="prompt-form-item">
-          <div class="prompt-form-item-label my-2 text-sm font-medium">{$_("SettingModal.Library.Modal.model")}</div>
+          <div class="prompt-form-item-label my-2 text-sm font-medium">{$_("SettingModal.Library.Modal.Model")}</div>
           <div class="prompt-form-item-value">
-            <!-- <select
+            <select
                 class="w-full rounded py-2 px-4 text-sm dark:text-gray-300 dark:bg-gray-800 outline-none"
-                bind:value={deleteModelTag}
+                bind:value={formData.model}
                 placeholder="{$_("SettingModal.SelectModel")}"
               >
-                {#if !deleteModelTag}
-                  <option value="" disabled selected>{$_("SettingModal.SelectModel")}</option>
-                {/if}
                 {#each $models.filter((m) => m.size != null) as model}
                   <option value={model.name} class="bg-gray-100 dark:bg-gray-700"
                     >{model.name + " (" + (model.size / 1024 ** 3).toFixed(1) + " GB)"}</option
                   >
                 {/each}
-              </select> -->
+              </select>
+          </div>
+        </div>
+        <div class="prompt-form-item">
+          <div class="prompt-form-item-label my-2 text-sm font-medium">{$_("SettingModal.Library.Modal.Upload")}</div>
+          <div class="prompt-form-item-value">
+            <Upload bind:fileList={formData.fileList}/>
           </div>
         </div>
       </div>
